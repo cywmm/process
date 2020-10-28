@@ -1,0 +1,3 @@
+rootProject.name='process'
+include ':app'
+include ':process-talk'
