@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ProcessActivity01">
+            android:name=".ClientActivity01">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,12 +19,15 @@
         </activity>
 
         <activity
-            android:name=".ProcessActivity02"
+            android:name=".ClientActivity02"
             android:process=":process2" />
 
         <service
-            android:name="com.example.talk.ProcessService"
-            android:process=":process3"/>
+            android:name="com.example.talk.SeverService"
+            android:process=":server01"/>
+
+        <service android:name=".ServiceBindService"
+            android:process=":process3" />
     </application>
 
 </manifest>

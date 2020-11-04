@@ -3,7 +3,6 @@ package com.example.talk
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import android.os.Process.myPid
 import android.util.Log
 
 /**
@@ -11,8 +10,8 @@ import android.util.Log
  *  email:  cy_wangming@163.com
  *  date:   2020/10/28 10:54
  */
-class ProcessService : Service() {
-    private val TAG = ProcessService::class.java.simpleName
+class SeverService : Service() {
+    private val TAG = SeverService::class.java.simpleName
     private var message: String? = null
 
     override fun onCreate() {
@@ -25,17 +24,13 @@ class ProcessService : Service() {
 
     private val binder: IMyAidlInterface.Stub = object : IMyAidlInterface.Stub() {
 
-        override fun getPid(): Int {
-            return myPid()
-        }
-
         override fun setMsg(aString: String) {
-            Log.d(TAG, "ProcessService set message is $aString")
+            Log.d(TAG, "set message is $aString")
             message = aString
         }
 
         override fun getMsg(): String? {
-            Log.d(TAG, "ProcessService get message is $message")
+            Log.d(TAG, "get message is $message")
             return message
         }
     }
